@@ -1,0 +1,10 @@
+<h3>Subir productos</h3>
+<form (ngSubmit)="submit()" id="productos-form" enctype="multipart/form-data">
+    <input type="submit" value="Enviar">
+    <h5>Nombre</h5>
+    <input type="text" [(ngModel)]="nombre" name="productos[nombre][]">
+    <h5>Farmaceuta</h5>
+    <input type="text" [(ngModel)]="farmaceuta" name="productos[farmaceuta][]">
+</form>
+<h6>img</h6>
+<input type="file" (change)="onFileSelected($event)">

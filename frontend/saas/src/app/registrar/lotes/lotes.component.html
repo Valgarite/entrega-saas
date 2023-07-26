@@ -1,0 +1,46 @@
+<h3>subir productos</h3>
+<h2>ID del lote a registrar</h2>
+<form (ngSubmit)="enviarDatos()" method="post" id="lote-form">
+    <input type="submit" value="Subir lote">
+    <input [(ngModel)]="id" type="text" name="lote[id]">
+</form>
+
+<h2>Datos de los productos del lote</h2>
+<form (ngSubmit)="siguienteProducto()" method="post" id="lote-form">
+    <h4>Producto seleccionado</h4>
+    <select [(ngModel)]="producto.id" name="lote[producto][]" id="productos-select">
+        <option ngValue="" selected>-Seleccione un producto-</option>
+        <option *ngFor="let prdct of productosCargados" [ngValue]="prdct.id">{{prdct.nombre}} - {{prdct.farmaceuta}}
+        </option>
+    </select>
+    <h4>Precio unitario del producto</h4>
+    <input [(ngModel)]="producto.precio" type="number" name="lote[precio][]">
+    <h4>Cantidad de producto</h4>
+    <input [(ngModel)]="producto.cantidad" type="number" name="lote[cantidad][]">
+    <h4>Fecha de expiración</h4>
+    <input [(ngModel)]="producto.fecha" type="date" name="lote[fecha][]">
+    <input type="submit" value="Añadir producto al lote">
+</form>
+
+
+<p>Productos en carrito: {{carrito.length}}</p>
+<table border="1">
+    <thead>
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Farmaceuta</td>
+        <td>Cantidad a registrar</td>
+        <td>F. de vencimiento</td>
+        <td>Precio unitario</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let content of carrito">
+            <td>{{content.id}}</td>
+            <td>{{content.nombreR}}</td>
+            <td>{{content.farmaceutaR}}</td>
+            <td>{{content.cantidadR}}</td>
+            <td>{{content.fvR}}</td>
+            <td>{{content.precioR}}</td>
+        </tr>
+    </tbody>
+</table>

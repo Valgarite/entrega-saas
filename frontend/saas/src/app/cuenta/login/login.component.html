@@ -1,0 +1,17 @@
+<h3>login</h3>
+<!-- <form #loginForm="ngForm" (ngSubmit)="getLoginData(loginForm.value)">
+    <input type="text" ngModel name="username">
+    <input type="text" ngModel name="password">
+    <input type="submit">
+</form> -->
+<nav>
+    <ul>
+        <li><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Iniciar sesión</a></li>
+        <li><a routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Registrarse</a></li>
+    </ul>
+</nav>
+<form (ngSubmit)="onSubmit()">
+    <input type="text" name="username" [(ngModel)]="username">
+    <input type="text" name="password" [(ngModel)]="password">
+    <input type="submit" value="Iniciar sesión">
+</form>

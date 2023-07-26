@@ -1,0 +1,13 @@
+<h3>register</h3>
+<nav>
+  <ul>
+      <li><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Iniciar sesión</a></li>
+      <li><a routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Registrarse</a></li>
+  </ul>
+</nav>
+<form (ngSubmit)="onSubmit()">
+  <input type="text" name="username" [(ngModel)]="username">
+  <input type="password" name="password" [(ngModel)]="password">
+  <input type="date" name="fecha_nac" [(ngModel)]="fecha_nac">
+  <input type="submit" value="Submit">
+</form>
