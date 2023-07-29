@@ -75,8 +75,8 @@ export class ReportesComponent implements OnInit {
       id_producto: idProducto,
       id_lote: idLote
     }
-    this.http.post(this.url + "/lotes/agotar_productos.php", rq2).subscribe((response: any) => {
-      console.log(response)
+    this.http.post(this.url + "/lotes/agotar_productos.php", rq2).subscribe(() => {
+      alert("Se ha alterado este producto")
     })
   }
   descargarImagen(idImagen: string, nombreArchivo: string) {

@@ -1,4 +1,4 @@
-<h3>login</h3>
+<h3>Inicio de sesión</h3>
 <!-- <form #loginForm="ngForm" (ngSubmit)="getLoginData(loginForm.value)">
     <input type="text" ngModel name="username">
     <input type="text" ngModel name="password">
@@ -6,12 +6,20 @@
 </form> -->
 <nav>
     <ul>
-        <li><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Iniciar sesión</a></li>
-        <li><a routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Registrarse</a></li>
+        <!-- <li><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Iniciar sesión</a></li> -->
+        <!-- <li><a routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Registrarse</a></li> -->
     </ul>
 </nav>
 <form (ngSubmit)="onSubmit()">
-    <input type="text" name="username" [(ngModel)]="username">
-    <input type="text" name="password" [(ngModel)]="password">
+    <label for="user">Nombre de usuario</label>
+    <input #user type="text" name="username" [(ngModel)]="username" maxlength="16">
+    <label for="pass">Contraseña</label>
+    <input #pass type="password" name="password" [(ngModel)]="password" maxlength="16">
     <input type="submit" value="Iniciar sesión">
+</form>
+
+<form>
+    Para efectos de esta demostración use estas credenciales:<br>
+    Usuario: Administrador<br>
+    Contraseña: Saas123
 </form>

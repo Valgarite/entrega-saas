@@ -20,6 +20,7 @@ export class ProductosComponent {
   // status: boolean = false;
   imageSrc:any = '';
   status:boolean = false;
+  nada: any = ""
    
   constructor(private http: HttpClient, private authService: AuthService){}
 

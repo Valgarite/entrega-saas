@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+      "target": "https://valgarite.great-site.net/assets/php/",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
+  }

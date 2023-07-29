@@ -82,7 +82,7 @@ export class ReportesProductosComponent implements OnInit {
       this.http.post(this.url + "/productos/get-producto.php", rq).subscribe((response: any) => {
         this.productoSeleccionado = (response.rs1[0])
         this.infoProductos = (response.rs1)
-        this.imgPath = 'http://localhost/inventario-farmacia/backend/assets/php/download-img.php?id=' + response.rs1[0].img_url
+        this.imgPath = this.url + 'download-img.php?id=' + response.rs1[0].img_url
 
         this.loadGraph(response.rs1)
       })

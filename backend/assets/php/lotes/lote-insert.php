@@ -2,17 +2,25 @@
 // var_dump($lotes);
 $lotes = json_decode(file_get_contents("php://input"), TRUE);
 if (!isset($lotes)) {
-    exit('¿No se enviaron productos?');
+    exit(json_encode(['message' =>'Contenido vacío', 'result' => 'fail']));
+}
+
+if ($lotes['id'] <= 0) {
+    exit(json_encode(['message' =>'ID de lote no válido', 'result' => 'fail']));
+}
+
+if (!is_numeric($lotes['id'])) {
+    exit(json_encode(['message' =>'No es un número', 'result' => 'fail']));
 }
 
 if (
     $lotes['id'] == "" ||
-    in_array("", $lotes['producto']) || count($lotes['producto'])==0 ||
-    in_array("", $lotes['cantidad']) || count($lotes['cantidad'])==0 ||
-    in_array("", $lotes['precio']) || count($lotes['precio'])==0 ||
-    in_array("", $lotes['fecha']) || count($lotes['fecha'])==0
+    in_array("", $lotes['producto']) || count($lotes['producto'])<=0 ||
+    in_array("", $lotes['cantidad']) || count($lotes['cantidad'])<=0 ||
+    in_array("", $lotes['precio']) || count($lotes['precio'])<=0 ||
+    in_array("", $lotes['fecha']) || count($lotes['fecha'])<=0
 ) {
-    exit(json_encode(['message' =>'Hay contenido vacío en el formulario.', 'result' => 'fail']));
+    exit(json_encode(['message' =>'Se intentó registrar un producto con datos inválidos.', 'result' => 'fail']));
 }
 $tiempo_ingreso = date('Y-m-d H:i:s',time());
 

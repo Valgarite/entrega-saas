@@ -1,1 +1,134 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html {
+    background-image: url("./assets/images/pharmacy-background.webp");
+    background-repeat: no-repeat;
+}
+
+#subirLote{
+    margin-top: 1em;
+}
+
+header>a:link {
+    color: #E7F2F0;
+}
+
+header>a:visited {
+    color: #E7F2F0;
+}
+
+h2{
+    color: #E7F2F0;
+    background-color: #53abc4;
+}
+h1{
+    color: #2651e0;
+    background-color: #379937;
+}
+
+h3{
+    background-color: #169686;
+}
+
+form {
+    background-color: white;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input {
+    align-self: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 1em;
+    max-width: 50%;
+}
+
+select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 1em;
+    align-self: center;
+    max-width: 50%;
+}
+
+.chart {
+    align-self: center;
+    max-height: 256px;
+    max-width: 80%;
+}
+
+table{
+    margin-left: auto;
+    margin: auto;
+}
+
+img {
+    align-self: center;
+}
+
+.homeLinks{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: #A7E2DB;
+    font-size: 1.5em;
+}
+
+.homeLinks:link {
+    color: #6c789e;
+}
+
+.homeLinks:visited {
+    color: #6c789e;
+}
+
+@media only screen and (max-width: 600px) {
+    * {
+        font-size: 1.1em;
+    }
+
+    header {
+        font-size: 1.5em;
+        color: #E7F2F0;
+        background: #86D9CF;
+
+    }
+
+    .chart {
+        max-height: 256px;
+        max-width: 100%;
+    }
+
+    table {
+        font-size: 0.33em;
+    }
+
+    td>img {
+        max-width: 64px;
+        height: auto;
+    }
+
+    input {
+        max-width: 75%;
+    }
+
+    #rprod>td {
+        font-size: 1.2em;
+    }
+}

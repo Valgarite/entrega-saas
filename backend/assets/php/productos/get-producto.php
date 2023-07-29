@@ -7,7 +7,7 @@ $rq = json_decode(file_get_contents("php://input"), TRUE);
 $stmt = $conn->prepare(
     'SELECT *
     FROM producto
-    JOIN lote_tiene_producto
+    LEFT JOIN lote_tiene_producto
     ON lote_tiene_producto.idproducto = producto.id
     WHERE producto.id = ?
     '

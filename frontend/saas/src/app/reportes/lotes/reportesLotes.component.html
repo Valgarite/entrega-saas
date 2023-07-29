@@ -1,43 +1,48 @@
 <h2>Reportes de lotes</h2>
-<label for="lote-select">Lote a inspeccionar:</label>
-<select #loteSelect (change)="loteChange(loteSelect.value)" id="lote-select">
-    <option selected>-Seleccione un lote-</option>
-    <option *ngFor="let lt of lotesCargados" ngValue="lt.idpersonal">{{lt.ingreso}} #{{lt.id}}</option>
-</select>
+<form>
+    <label for="lote-select">Lote a inspeccionar:</label>
+    <select #loteSelect (change)="loteChange(loteSelect.value)" id="lote-select">
+        <option selected>-Seleccione un lote-</option>
+        <option *ngFor="let lt of lotesCargados" ngValue="lt.idpersonal">{{lt.ingreso}} #{{lt.id}}</option>
+    </select>
+</form>
 
-<h3>Información del Lote</h3>
-<p>Código: {{selectedLote}}</p>
-<p>Fecha de ingreso: {{fechaLote}}</p>
-<p>Ingresado por el usuario: {{foundUsername}}</p>
+<form>
+    <h3>Información del Lote</h3>
+    <p>Código: {{selectedLote}}</p>
+    <p>Fecha de ingreso: {{fechaLote}}</p>
+    <p>Ingresado por el usuario: {{foundUsername}}</p>
 
-<h3>Productos almacenados en el lote</h3>
-<table border="1">
-    <thead>
-        <tr>
-            <td>Imagen</td>
-            <td>Nombre</td>
-            <td>Farmaceuta</td>
-            <td>Cantidad comprada</td>
-            <td>F. Vencimiento</td>
-            <td>Agotado</td>
-            <!--AÑADIR NUEVO .PHP QUE ACTUALICE SI LOS PRODUCTOS DE UN LOTE SE AGOTARON y BOTÓN EN EL TBODY DE ABAJO QUE LOS AGOTE-->
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let info of infoProductos; let i = index;">
-            <td><img [src]="url + '/download-img.php?id=' + info.img_url"
-                    width="128" height="128"
-                    [id]="'producto-img-' + i">
-            </td>
-            <td>{{info.nombre}}</td>
-            <td>{{info.farmaceuta}}</td>
-            <td>{{info.cantidad}}</td>
-            <td>{{info.expiracion}}</td>
-            <td><input type="checkbox" [(ngModel)]="info.agotado" (change)="agotar(info.idproducto, info.idlote)">
-            </td>
-            <td>
-                <button (click)="descargarImagen('producto-img-' + i, info.nombre + '-' + info.farmaceuta)">Descargar imagen</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <h3>Productos almacenados en el lote</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Imagen</td>
+                <td>Nombre</td>
+                <td>Farmaceuta</td>
+                <td>Cantidad comprada</td>
+                <td>F. Vencimiento</td>
+                <td>Agotado</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let info of infoProductos; let i = index;">
+                <td><img [src]="url + '/download-img.php?id=' + info.img_url" width="128" height="128"
+                        [id]="'producto-img-' + i">
+                </td>
+                <td>{{info.nombre}}</td>
+                <td>{{info.farmaceuta}}</td>
+                <td>{{info.cantidad}}</td>
+                <td>{{info.expiracion}}</td>
+                <td><input type="checkbox" [(ngModel)]="info.agotado" (change)="agotar(info.idproducto, info.idlote)">
+                </td>
+                <td>
+                    <button
+                        (click)="descargarImagen('producto-img-' + i, info.nombre + '-' + info.farmaceuta)">Descargar
+                        imagen</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

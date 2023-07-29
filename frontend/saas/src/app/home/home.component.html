@@ -1,11 +1,11 @@
-<nav>
-    <ul>
-        <li><a routerLink="productos" routerLinkActive="active" ariaCurrentWhenActive="page">Registrar productos</a></li>
-        <li><a routerLink="lotes" routerLinkActive="active" ariaCurrentWhenActive="page">Registrar lote</a></li>
-        <li><a routerLink="reportes/lotes" routerLinkActive="active" ariaCurrentWhenActive="page">Información de lotes</a></li>
-        <li><a routerLink="reportes/productos" routerLinkActive="active" ariaCurrentWhenActive="page">Información de los productos</a></li>
-        <li><a routerLink="usuarios" routerLinkActive="active" ariaCurrentWhenActive="page">Usuarios</a></li>
-    </ul>
-</nav>
-<main>Bienvenido {{userLogged}}</main>
+<form>
+    <h3>Bienvenido, {{userLogged}}</h3>
+    <a routerLink="/productos" routerLinkActive="active" ariaCurrentWhenActive="page" class="homeLinks">Registrar productos</a>
+    <a routerLink="/lotes" routerLinkActive="active" ariaCurrentWhenActive="page" class="homeLinks">Registrar lote</a>
+    <a routerLink="/reportes/lotes" routerLinkActive="active" ariaCurrentWhenActive="page" class="homeLinks">Información de
+        lotes</a>
+    <a routerLink="/reportes/productos" routerLinkActive="active" ariaCurrentWhenActive="page" class="homeLinks">Información de
+        los productos</a>
+    <!-- <li><a routerLink="usuarios" routerLinkActive="active" ariaCurrentWhenActive="page">Usuarios</a></li> -->
 
+</form>

@@ -1,43 +1,47 @@
 <h2>Reportes de productos</h2>
-<label for="producto-select">Seleccione un producto: </label>
-<select #productoSelect (change)="productoChange(productoSelect.value)" id="producto-select">
-    <option selected>-Seleccione un producto</option>
-    <option *ngFor="let prdct of productosCargados">#{{prdct.id}} - {{prdct.farmaceuta}}: {{prdct.nombre}}</option>
-</select>
 
-<p>Código: {{selectedProductoId}}</p>
-<p>Nombre: {{selectedProductoNombre}}</p>
-<p>Farmaceuta: {{selectedProductoFarmaceuta}}</p>
-<img [src]="imgPath" *ngIf="imgPath!=''" width="128" height="128" [id]="productoSeleccionado.nombre">
+<form>
 
-<canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="'bar'"> </canvas>
+    <label for="producto-select">Seleccione un producto: </label>
+    <select #productoSelect (change)="productoChange(productoSelect.value)" id="producto-select">
+        <option selected>-Seleccione un producto</option>
+        <option *ngFor="let prdct of productosCargados">#{{prdct.id}} - {{prdct.farmaceuta}}: {{prdct.nombre}}</option>
+    </select>
 
-<h3>Lotes a los que pertenece</h3>
-<table border="1">
-    <thead>
-        <tr>
-            <td>QR</td>
-            <td>N° de lote</td>
-            <td>Cantidad comprada</td>
-            <td>F. Vencimiento</td>
-            <td>¿Agotado?</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let info of infoProductos; let i = index;">
-            <!-- cambiar url por una que descargue los qr -->
-            <!-- <td><img [src]="url + '/download-img.php?id=' + info.img_url"
-                    width="128" height="128" [id]="'producto-img-' + i">
-            </td> -->
-            <td>
-                <qrcode [qrdata]="url + 'lotes/QR-producto_en_lote.php?id=' + info.idproducto + '&lote=' + info.idlote"
-                    [width]="128"></qrcode>
-            </td>
-            <td>#{{info.idlote}}</td>
-            <td>{{info.cantidad}}</td>
-            <td>{{info.expiracion}}</td>
-            <td><input type="checkbox" [(ngModel)]="info.agotado" (change)="agotar(info.idproducto, info.idlote)">
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <p>Código: {{selectedProductoId}}</p>
+    <p>Nombre: {{selectedProductoNombre}}</p>
+    <p>Farmaceuta: {{selectedProductoFarmaceuta}}</p>
+    <img [src]="imgPath" *ngIf="imgPath!=''" width="128" height="128" [id]="productoSeleccionado.nombre">
+
+    <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="'bar'" class="chart"> </canvas>
+    <div id="xd">
+
+        <h3>Lotes a los que pertenece</h3>
+        <table border="1">
+            <thead>
+                <tr id="rprod">
+                    <td>QR</td>
+                    <td>N° de lote</td>
+                    <td>Cantidad comprada</td>
+                    <td>F. Vencimiento</td>
+                    <td>¿Agotado?</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let info of infoProductos; let i = index;">
+                    <td>
+                        <qrcode
+                            [qrdata]="url + 'lotes/QR-producto_en_lote.php?id=' + info.idproducto + '&lote=' + info.idlote"
+                            [width]="128"></qrcode>
+                    </td>
+                    <td>#{{info.idlote}}</td>
+                    <td>{{info.cantidad}}</td>
+                    <td>{{info.expiracion}}</td>
+                    <td><input type="checkbox" [(ngModel)]="info.agotado"
+                            (change)="agotar(info.idproducto, info.idlote)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>

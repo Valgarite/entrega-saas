@@ -37,7 +37,7 @@ export class LoginComponent {
         this.authService.sessionId = response.session_id
         this.authService.userLogged = response.user
         alert('entrando')
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('home');
       }
     })
 
